@@ -43,6 +43,197 @@
             padding: 10px;
         }
         
+        /* Render control panel (bottom-right) - Minimalist Notion-style Liquid Glass - Compact */
+        #splatControlPanel {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 340px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px 14px;
+            color: rgba(255, 255, 255, 0.95);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            z-index: 10;
+            box-sizing: border-box;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.2) transparent;
+            display: none; /* Hidden by default, can be shown via code */
+        }
+        #splatControlPanel::-webkit-scrollbar {
+            width: 4px;
+        }
+        #splatControlPanel::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+        }
+        #splatControlPanel h3 {
+            margin: 0 0 10px 0;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+        }
+        .splat-section {
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .splat-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .splat-section-title {
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .splat-toggle {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .splat-toggle.on {
+            background: rgba(76, 175, 80, 0.3);
+            border-color: rgba(76, 175, 80, 0.5);
+            color: rgba(255, 255, 255, 0.95);
+        }
+        .splat-toggle.off {
+            background: rgba(158, 158, 158, 0.2);
+            border-color: rgba(158, 158, 158, 0.3);
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .splat-toggle:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .control-group {
+            margin-bottom: 6px;
+        }
+        .control-group label {
+            display: block;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        .control-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+        .control-row-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+        .input-with-label {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 2px 6px;
+            gap: 2px;
+        }
+        .input-with-label span {
+            font-size: 8px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.25);
+            width: 14px; /* Slightly wider for RX/RY/RZ */
+            text-align: center;
+        }
+        .input-with-label input[type="number"] {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 4px 0;
+            color: #fff;
+            font-size: 11px;
+            outline: none;
+            font-variant-numeric: tabular-nums;
+        }
+        .control-row input[type="range"] {
+            flex: 1;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        .control-row input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .control-row input[type="number"].radius-num {
+            width: 45px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 4px 6px;
+            color: #fff;
+            font-size: 11px;
+            text-align: right;
+        }
+        .control-row select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 4px 6px;
+            color: #fff;
+            font-size: 11px;
+            outline: none;
+        }
+        .radio-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 4px;
+        }
+        .radio-row label {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            margin: 0;
+        }
+        .radio-row input[type="radio"] {
+            margin: 0;
+            accent-color: #fff;
+        }
+        .radio-row input[type="checkbox"] {
+            margin: 0;
+            accent-color: #fff;
+        }
+        
         /* Compass Button - Commented out for later use */
         /*
         #menuButton {
@@ -558,6 +749,119 @@
         <button id="toggleSplat1">Toggle Splat 1</button>
         <button id="toggleSplat2">Toggle Splat 2</button>
     </div>
+
+    <!-- Render control panel (bottom-right) -->
+    <div id="splatControlPanel">
+        <h3>Render Controls</h3>
+        
+        <!-- Splat 1 Section -->
+        <div class="splat-section">
+            <div class="splat-section-title">
+                <span>Splat 1</span>
+                <div class="splat-toggle on" id="splat1Toggle">ON</div>
+            </div>
+            
+            <div class="control-group">
+                <label>Radius & Scale</label>
+                <div class="control-row">
+                    <input type="range" id="splat1Radius" min="0.05" max="100" step="0.1">
+                    <input type="number" id="splat1RadiusNum" class="radius-num" step="0.1">
+                </div>
+                <div class="control-row">
+                    <input type="range" id="splat1Scale" min="0.1" max="10" step="0.01">
+                    <input type="number" id="splat1ScaleNum" class="radius-num" step="0.01">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label>Mode</label>
+                <div class="control-row">
+                    <select id="splat1Mode">
+                        <option value="inside">Inside</option>
+                        <option value="outside">Outside</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label>Position & Rotation</label>
+                <div class="control-row-grid">
+                    <div class="input-with-label"><span>X</span><input type="number" id="splat1PosX" step="0.01"></div>
+                    <div class="input-with-label"><span>Y</span><input type="number" id="splat1PosY" step="0.01"></div>
+                    <div class="input-with-label"><span>Z</span><input type="number" id="splat1PosZ" step="0.01"></div>
+                </div>
+                <div class="control-row-grid">
+                    <div class="input-with-label"><span>RX</span><input type="number" id="splat1RotX" step="0.1"></div>
+                    <div class="input-with-label"><span>RY</span><input type="number" id="splat1RotY" step="0.1"></div>
+                    <div class="input-with-label"><span>RZ</span><input type="number" id="splat1RotZ" step="0.1"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Splat 2 Section -->
+        <div class="splat-section">
+            <div class="splat-section-title">
+                <span>Splat 2</span>
+                <div class="splat-toggle on" id="splat2Toggle">ON</div>
+            </div>
+            
+            <div class="control-group">
+                <label>Radius & Scale</label>
+                <div class="control-row">
+                    <input type="range" id="splat2Radius" min="0.05" max="100" step="0.1">
+                    <input type="number" id="splat2RadiusNum" class="radius-num" step="0.1">
+                </div>
+                <div class="control-row">
+                    <input type="range" id="splat2Scale" min="0.1" max="10" step="0.01">
+                    <input type="number" id="splat2ScaleNum" class="radius-num" step="0.01">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label>Mode</label>
+                <div class="control-row">
+                    <select id="splat2Mode">
+                        <option value="inside">Inside</option>
+                        <option value="outside">Outside</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label>Position & Rotation</label>
+                <div class="control-row-grid">
+                    <div class="input-with-label"><span>X</span><input type="number" id="splat2PosX" step="0.01"></div>
+                    <div class="input-with-label"><span>Y</span><input type="number" id="splat2PosY" step="0.01"></div>
+                    <div class="input-with-label"><span>Z</span><input type="number" id="splat2PosZ" step="0.01"></div>
+                </div>
+                <div class="control-row-grid">
+                    <div class="input-with-label"><span>RX</span><input type="number" id="splat2RotX" step="0.1"></div>
+                    <div class="input-with-label"><span>RY</span><input type="number" id="splat2RotY" step="0.1"></div>
+                    <div class="input-with-label"><span>RZ</span><input type="number" id="splat2RotZ" step="0.1"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background Priority -->
+        <div class="splat-section">
+            <div class="control-group">
+                <label>Background Priority</label>
+                <div class="radio-row">
+                    <label><input type="radio" name="bgOwner" value="splat1" checked> Splat 1</label>
+                    <label><input type="radio" name="bgOwner" value="splat2"> Splat 2</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Origin Marker Toggle -->
+        <div class="splat-section">
+            <div class="control-group">
+                <div class="radio-row">
+                    <label><input type="checkbox" id="originMarkerToggle"> Show Origin Marker</label>
+                </div>
+            </div>
+        </div>
+    </div>
     <script type="importmap">
     {
         "imports": {
@@ -586,7 +890,12 @@
         },
         scene: {
             origin: { x: 0, y: 0, z: 0 },
-            targetLimit: { x: 1, z: 1 }
+            targetLimit: { x: 1, z: 1 },
+            maxRenderRadius: 1.0, // Limit rendering to this radius from origin (adjust as needed)
+            // Controls whether splats are visible inside the radius (default) or only outside it
+            // 'inside': show splats with distance <= maxRenderRadius
+            // 'outside': hide splats with distance <  maxRenderRadius (inverse mask)
+            renderRadiusMode: 'inside'
         },
         animation: {
             autoRotate: true,
@@ -600,7 +909,7 @@
             elasticity: 0.05
         },
         maxDistance: {
-            base: 5,
+            base: 4,
             responsiveness: 1.7
         },
         // (1) Added new minDistance parameter
@@ -753,7 +1062,8 @@
             camera.position.copy(direction.multiplyScalar(parameters.minDistance.radius).add(minDistCenter));
         }
 
-        // Zone-based splat toggling
+        /* 
+        // Zone-based splat toggling disabled to allow simultaneous foreground/background rendering
         if (!developerMode) {
             let cameraInZone = false;
 
@@ -777,15 +1087,12 @@
                             }, 15);
                         }
                     }
-                    break; // Assuming only one zone is active at a time
+                    break; 
                 }
             }
 
             if (!cameraInZone) {
-                // Set default splat visibility when not in any zone
-                // "new" is splat1 here, so it goes on right away
                 splats.splat1.visible = true;
-                // "old" is splat2 here, so it goes off after 30ms
                 if (splats.splat2.visible) {
                     setTimeout(() => {
                         splats.splat2.visible = false;
@@ -793,24 +1100,66 @@
                 }
             }
         }
+        */
     });
 
     // Developer mode toggle
     const developerMode = parameters.developerMode;
 
+    function applySplatCulling(splat, radius, mode = 'inside') {
+        splat.material.onBeforeCompile = (shader) => {
+            // Add uniform for cull radius
+            shader.uniforms.cullRadius = { value: radius };
+            shader.uniforms.cullCenter = { value: new Vector3(0, 0, 0) };
+            // 0.0 = normal (show inside radius), 1.0 = inverse (show outside radius)
+            shader.uniforms.cullInvert = { value: mode === 'outside' ? 1.0 : 0.0 };
+
+            // Prepend uniform declarations to vertex shader
+            shader.vertexShader = `
+                uniform float cullRadius;
+                uniform vec3 cullCenter;
+                uniform float cullInvert;
+                ${shader.vertexShader}
+            `;
+
+            // Inject distance culling check right after the splat position 'c' is calculated
+            // The Luma shader calculates: vec3 c=vec3(a,b.x); which is the actual splat world position
+            // We inject our culling check right after this line
+            shader.vertexShader = shader.vertexShader.replace(
+                /vec3 c=vec3\(a,b\.x\);/,
+                `vec3 c=vec3(a,b.x);
+                // Distance-based culling
+                float splatDist = length(c - cullCenter);
+                // mode 'inside':  cull outside the radius
+                // mode 'outside': cull inside the radius (inverse mask)
+                if ((cullInvert < 0.5 && splatDist > cullRadius) || (cullInvert > 0.5 && splatDist < cullRadius)) {
+                    gl_Position = vec4(0., 0., 2., 1.);
+                    return;
+                }`
+            );
+        };
+    }
+
+    const defaultCulling = {
+        radius: parameters.scene.maxRenderRadius,
+        mode: parameters.scene.renderRadiusMode
+    };
+
     // Splat configurations
     const splatConfigs = {
         splat1: {
-            source: '',
-            position: new Vector3(0.063, 0, -0.165),
-            rotation: { x: 0, y: 0, z: 0 },
-            scale: 1
+            source: 'https://lumalabs.ai/embed/3b41e172-dd0f-48a4-9065-893862bfc8b1?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false',
+            position: new Vector3(0, -0.56, 0),
+            rotation: { x: 1.3, y: 0, z: 0.0 },
+            scale: 1.00,
+            culling: { radius: 3.9, mode: 'inside' }
         },
         splat2: {
-            source: 'https://lumalabs.ai/embed/35da8a57-b2d8-4cd2-958e-1f449bf8ecf2?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false',
-            position: new Vector3(0, -0.72, 0),
-            rotation: { x: 0, y: 0, z: 0 },
-            scale: 1
+            source: 'https://lumalabs.ai/embed/04a8b1ce-135f-4537-aeeb-e4eed6f81815?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false',
+            position: new Vector3(0, 0, -0.55),
+            rotation: { x: 0, y: 32.6, z: 0 },
+            scale: 0.75,
+            culling: { radius: 3.9, mode: 'outside' }
         }
     };
 
@@ -828,6 +1177,7 @@
     splat.rotation.z = MathUtils.degToRad(splatConfigs.splat1.rotation.z);
     splat.scale.setScalar(splatConfigs.splat1.scale);
     scene.add(splat);
+    applySplatCulling(splat, splatConfigs.splat1.culling.radius, splatConfigs.splat1.culling.mode);
 
     // Create the second splat
     let splat2 = new LumaSplatsThree({
@@ -843,15 +1193,295 @@
     splat2.rotation.z = MathUtils.degToRad(splatConfigs.splat2.rotation.z);
     splat2.scale.setScalar(splatConfigs.splat2.scale);
     scene.add(splat2);
+    applySplatCulling(splat2, splatConfigs.splat2.culling.radius, splatConfigs.splat2.culling.mode);
 
     const splats = {
         splat1: splat,
         splat2: splat2
     };
 
+    // Culling helpers
+    function updateSplatRadius(id, radius) {
+        const cfg = splatConfigs[id];
+        const target = splats[id];
+        if (cfg) cfg.culling.radius = radius;
+        if (target?.material?.uniforms?.cullRadius) {
+            target.material.uniforms.cullRadius.value = radius;
+            target.material.needsUpdate = true;
+        }
+        const slider = document.getElementById(`${id}Radius`);
+        const numInput = document.getElementById(`${id}RadiusNum`);
+        if (slider) slider.value = radius;
+        if (numInput) numInput.value = radius.toFixed(1);
+    }
+
+    function updateSplatMode(id, mode) {
+        const cfg = splatConfigs[id];
+        const target = splats[id];
+        if (cfg) cfg.culling.mode = mode;
+        if (target?.material?.uniforms?.cullInvert) {
+            target.material.uniforms.cullInvert.value = mode === 'outside' ? 1.0 : 0.0;
+            target.material.needsUpdate = true;
+        }
+        const select = document.getElementById(`${id}Mode`);
+        if (select) select.value = mode;
+    }
+
+    function updateSplatPosition(id, axis, value) {
+        const cfg = splatConfigs[id];
+        const target = splats[id];
+        const numValue = parseFloat(value);
+        if (cfg && cfg.position) {
+            cfg.position[axis] = numValue;
+        }
+        if (target) {
+            target.position[axis] = numValue;
+        }
+        const input = document.getElementById(`${id}Pos${axis.toUpperCase()}`);
+        if (input) input.value = numValue.toFixed(2);
+    }
+
+    function updateSplatRotation(id, axis, value) {
+        const cfg = splatConfigs[id];
+        const target = splats[id];
+        const degValue = parseFloat(value);
+        if (cfg && cfg.rotation) {
+            cfg.rotation[axis] = degValue;
+        }
+        if (target) {
+            target.rotation[axis] = MathUtils.degToRad(degValue);
+        }
+        const input = document.getElementById(`${id}Rot${axis.toUpperCase()}`);
+        if (input) input.value = degValue.toFixed(1);
+    }
+
+    function updateSplatScale(id, value) {
+        const cfg = splatConfigs[id];
+        const target = splats[id];
+        const scaleValue = parseFloat(value);
+        if (cfg) cfg.scale = scaleValue;
+        if (target) {
+            target.scale.setScalar(scaleValue);
+        }
+        const slider = document.getElementById(`${id}Scale`);
+        const numInput = document.getElementById(`${id}ScaleNum`);
+        if (slider) slider.value = scaleValue;
+        if (numInput) numInput.value = scaleValue.toFixed(2);
+    }
+
+    // Origin Marker (1 unit diameter, dark red, 50% opacity)
+    const originMarkerGeometry = new SphereGeometry(0.5, 32, 32); // 0.5 radius = 1 unit diameter
+    const originMarkerMaterial = new MeshBasicMaterial({ 
+        color: 0x8B0000, 
+        transparent: true, 
+        opacity: 0.5 
+    });
+    const originMarker = new Mesh(originMarkerGeometry, originMarkerMaterial);
+    scene.add(originMarker);
+
+    // Background precedence between splats
+    let backgroundOwner = 'splat1';
+    function applyBackgroundOwner(owner) {
+        backgroundOwner = owner;
+        const primary = splats[owner];
+        const secondary = splats[owner === 'splat1' ? 'splat2' : 'splat1'];
+        if (primary) primary.renderOrder = 1001;
+        if (secondary) secondary.renderOrder = 999;
+        // Optional: ensure both remain visible; controls below can toggle visibility separately if needed
+    }
+
+    // Wire UI controls
+    const panelBindings = [
+        { id: 'splat1', radiusEl: 'splat1Radius', radiusNumEl: 'splat1RadiusNum', modeEl: 'splat1Mode', scaleEl: 'splat1Scale', scaleNumEl: 'splat1ScaleNum' },
+        { id: 'splat2', radiusEl: 'splat2Radius', radiusNumEl: 'splat2RadiusNum', modeEl: 'splat2Mode', scaleEl: 'splat2Scale', scaleNumEl: 'splat2ScaleNum' }
+    ];
+
+    // Initialize all controls with current config values
+    panelBindings.forEach(({ id }) => {
+        const cfg = splatConfigs[id];
+        if (cfg) {
+            // Initialize radius
+            updateSplatRadius(id, cfg.culling.radius);
+            // Initialize mode
+            updateSplatMode(id, cfg.culling.mode);
+            // Initialize scale
+            updateSplatScale(id, cfg.scale);
+            // Initialize position
+            ['x', 'y', 'z'].forEach(axis => {
+                const input = document.getElementById(`${id}Pos${axis.toUpperCase()}`);
+                if (input && cfg.position) {
+                    input.value = cfg.position[axis];
+                }
+            });
+            // Initialize rotation
+            ['x', 'y', 'z'].forEach(axis => {
+                const input = document.getElementById(`${id}Rot${axis.toUpperCase()}`);
+                if (input && cfg.rotation) {
+                    input.value = cfg.rotation[axis];
+                }
+            });
+        }
+    });
+
+    // Wire radius controls (slider + number input)
+    panelBindings.forEach(({ id, radiusEl, radiusNumEl }) => {
+        const radiusSlider = document.getElementById(radiusEl);
+        const radiusNum = document.getElementById(radiusNumEl);
+        
+        if (radiusSlider) {
+            radiusSlider.addEventListener('input', (e) => {
+                const val = parseFloat(e.target.value);
+                if (!isNaN(val)) {
+                    updateSplatRadius(id, val);
+                    if (radiusNum) radiusNum.value = val.toFixed(1);
+                }
+            });
+        }
+        
+        if (radiusNum) {
+            radiusNum.addEventListener('input', (e) => {
+                const val = parseFloat(e.target.value);
+                if (!isNaN(val)) {
+                    updateSplatRadius(id, val);
+                    if (radiusSlider) radiusSlider.value = val;
+                }
+            });
+        }
+    });
+
+    // Wire scale controls (slider + number input)
+    panelBindings.forEach(({ id, scaleEl, scaleNumEl }) => {
+        const scaleSlider = document.getElementById(scaleEl);
+        const scaleNum = document.getElementById(scaleNumEl);
+        
+        if (scaleSlider) {
+            scaleSlider.addEventListener('input', (e) => {
+                const val = parseFloat(e.target.value);
+                if (!isNaN(val)) {
+                    updateSplatScale(id, val);
+                    if (scaleNum) scaleNum.value = val.toFixed(2);
+                }
+            });
+        }
+        
+        if (scaleNum) {
+            scaleNum.addEventListener('input', (e) => {
+                const val = parseFloat(e.target.value);
+                if (!isNaN(val)) {
+                    updateSplatScale(id, val);
+                    if (scaleSlider) scaleSlider.value = val;
+                }
+            });
+        }
+    });
+
+    // Wire mode controls
+    panelBindings.forEach(({ id, modeEl }) => {
+        const modeSelect = document.getElementById(modeEl);
+        if (modeSelect) {
+            modeSelect.addEventListener('change', (e) => {
+                updateSplatMode(id, e.target.value);
+            });
+        }
+    });
+
+    // Wire position controls
+    panelBindings.forEach(({ id }) => {
+        ['x', 'y', 'z'].forEach(axis => {
+            const input = document.getElementById(`${id}Pos${axis.toUpperCase()}`);
+            if (input) {
+                input.addEventListener('input', (e) => {
+                    const val = parseFloat(e.target.value);
+                    if (!isNaN(val)) {
+                        updateSplatPosition(id, axis, val);
+                    }
+                });
+            }
+        });
+    });
+
+    // Wire rotation controls
+    panelBindings.forEach(({ id }) => {
+        ['x', 'y', 'z'].forEach(axis => {
+            const input = document.getElementById(`${id}Rot${axis.toUpperCase()}`);
+            if (input) {
+                input.addEventListener('input', (e) => {
+                    const val = parseFloat(e.target.value);
+                    if (!isNaN(val)) {
+                        updateSplatRotation(id, axis, val);
+                    }
+                });
+            }
+        });
+    });
+
+    const bgRadios = document.querySelectorAll('input[name="bgOwner"]');
+    bgRadios.forEach((radio) => {
+        radio.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                applyBackgroundOwner(e.target.value);
+            }
+        });
+    });
+    // Initialize background owner based on default radio state
+    const checkedBg = document.querySelector('input[name="bgOwner"]:checked');
+    if (checkedBg) applyBackgroundOwner(checkedBg.value);
+
+    // Origin marker toggle
+    const originMarkerToggle = document.getElementById('originMarkerToggle');
+    if (originMarkerToggle) {
+        originMarkerToggle.addEventListener('change', (e) => {
+            originMarker.visible = e.target.checked;
+        });
+        // Initialize visibility based on checkbox state (hidden by default)
+        originMarker.visible = originMarkerToggle.checked;
+    }
+
+    // Control panel visibility - hidden by default, can be shown via code:
+    // document.getElementById('splatControlPanel').style.display = 'block';
+
+    // Splat visibility toggles
+    function updateSplatToggle(id, isVisible) {
+        const toggle = document.getElementById(`${id}Toggle`);
+        const target = splats[id];
+        if (toggle && target) {
+            target.visible = isVisible;
+            if (isVisible) {
+                toggle.textContent = 'ON';
+                toggle.classList.remove('off');
+                toggle.classList.add('on');
+            } else {
+                toggle.textContent = 'OFF';
+                toggle.classList.remove('on');
+                toggle.classList.add('off');
+            }
+        }
+    }
+
+    const splat1Toggle = document.getElementById('splat1Toggle');
+    const splat2Toggle = document.getElementById('splat2Toggle');
+    
+    if (splat1Toggle) {
+        splat1Toggle.addEventListener('click', () => {
+            const isCurrentlyVisible = splats.splat1.visible;
+            updateSplatToggle('splat1', !isCurrentlyVisible);
+        });
+    }
+    
+    if (splat2Toggle) {
+        splat2Toggle.addEventListener('click', () => {
+            const isCurrentlyVisible = splats.splat2.visible;
+            updateSplatToggle('splat2', !isCurrentlyVisible);
+        });
+    }
+
+    // Initialize visibility based on defaults
+    splat.visible = true;  // Splat 1 starts ON
+    splat2.visible = true; // Splat 2 starts ON
+    updateSplatToggle('splat1', true);
+    updateSplatToggle('splat2', true);
+
     if (developerMode) {
-        splat.visible = true;
-        splat2.visible = true;
         document.getElementById('developerControls').style.display = 'block';
         document.getElementById('toggleSplat1').addEventListener('click', () => {
             splat.visible = !splat.visible;
@@ -859,9 +1489,6 @@
         document.getElementById('toggleSplat2').addEventListener('click', () => {
             splat2.visible = !splat2.visible;
         });
-    } else {
-        splat.visible = true;
-        splat2.visible = false;
     }
 
     // TapDots Logic
